@@ -1,21 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../credenciales'; // Importa la instancia de Firestore
+import { db } from '../credenciales'; 
 
-const Torneo = () => {
+export const ListaTorneos = () => {
     const [torneos, setTorneos] = useState([]);
 
     useEffect(() => {
-        const obtenerTorneos = async () => {
+        const obtenerTorneosFirebase = async () => {
             const querySnapshot = await getDocs(collection(db, 'torneo'));
-            const datosTorneos = [];
+            const datosTorneosFirebase = [];
             querySnapshot.forEach(doc => {
-                datosTorneos.push({ id: doc.id, ...doc.data() });
+                datosTorneosFirebase.push({ id: doc.id, ...doc.data() });
             });
-            setTorneos(datosTorneos);
+
+            setTorneos(datosTorneosFirebase);
         };
 
-        obtenerTorneos();
+        obtenerTorneosFirebase();
     }, []);
 
     return (

@@ -6,7 +6,7 @@ import { signOut } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { db, auth } from "../credenciales"; // Importa la configuración de Firebase
 import { Lista } from "./ProductList";
-import { Torneo} from './ListaTorneos';
+import { ListaTorneos} from './ListaTorneos';
 
 const Home = ({ correoUsuario }) => {
     const [Torneo, setTorneo] = useState([]);

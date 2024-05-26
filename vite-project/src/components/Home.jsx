@@ -6,23 +6,10 @@ import { signOut } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { db, auth } from "../credenciales"; // Importa la configuración de Firebase
 import { Lista } from "./ProductList";
-import { ListaTorneos} from './ListaTorneos';
+
 
 const Home = ({ correoUsuario }) => {
-    const [Torneo, setTorneo] = useState([]);
-
-    useEffect(() => {
-        const obtenerTorneos = async () => {
-            const querySnapshot = await getDocs(collection(db, 'torneo'));
-            const datosTorneo = [];
-            querySnapshot.forEach(doc => {
-                datosTorneo.push({ id: doc.id, ...doc.data() });
-            });
-            setTorneo(datosTorneos);
-        };
-
-        obtenerTorneo();
-    }, []);
+const [allProducts, setAllProducts] = useState([]);
 
     return (
         <div>

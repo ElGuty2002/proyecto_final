@@ -1,26 +1,40 @@
 import React, { useState } from 'react';
 import imageProfile from '../assets/tumaridoramondino.png';
-import imagenModa from '../assets/moda.jpeg';
+import imagenModa from '../assets/final.jpg';
 import { auth } from '../credenciales'; // Importa la configuración de Firebase
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [registrando, setRegistrando] = useState(false);
+    const navigate = useNavigate();
 
     const functAutenticacion = async (e) => {
         e.preventDefault();
         const correo = e.target.email.value;
         const contraseña = e.target.password.value;
 
+        const isRoot = {
+            email: "ramoncito@gmail.com",
+            password: "ramoncito10"
+        };
+
         if (registrando) {
             try {
                 await createUserWithEmailAndPassword(auth, correo, contraseña);
+                alert("Usuario registrado con éxito");
             } catch (error) {
                 alert("Asegúrate de que la contraseña tenga mínimo 8 caracteres");
             }
         } else {
             try {
-                await signInWithEmailAndPassword(auth, correo, contraseña);
+                if (correo === isRoot.email && contraseña === isRoot.password) {
+                    alert("Bienvenido administrador");
+                    navigate('/home');
+                } else {
+                    await signInWithEmailAndPassword(auth, correo, contraseña);
+                    navigate('/home');
+                }
             } catch (error) {
                 alert("El correo o la contraseña son inválidos");
             }

@@ -21,9 +21,9 @@ export const Lista = ({allProducts, setAllProducts}) => {
 					</figure>
 					<div className='info-product'>
 						<h2>{product.nameProduct}</h2>
-						<p className='price'>${product.price}</p>
+						<p className='price'>cantidad maxima de participantes: {product.cantidad_max_participantes}</p>
 						<button onClick={()=> onAddProduct(product)}>
-							Añadir al carrito
+							inscribirse
 						</button>
 					</div>
 				</div>

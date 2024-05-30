@@ -27,11 +27,7 @@ const Login = () => {
                 alert("Asegúrate de que la contraseña tenga mínimo 8 caracteres");
             }
         } else {
-            try {
-                if (correo === isRoot.email && contraseña === isRoot.password) {
-                    alert("Bienvenido administrador");
-                    navigate('/home');
-                } else {
+ {
                     await signInWithEmailAndPassword(auth, correo, contraseña);
                     navigate('/home');
                 }

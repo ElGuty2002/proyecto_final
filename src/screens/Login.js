@@ -76,13 +76,11 @@ function Login() {
 
   return (
     <div className="prime">
-      <h1>{isRegistrando ? <div className='texto-arriba'>
-                <span className="destacado">Tenis</span> 
-                <br/>  REGISTRATE EN LA MEJOR <br/>PAGINA PARA TORNEOS DE TENIS </div>: <div className='texto-arriba'>
-                
-                
+      <h1>{isRegistrando ? <div className='texto-arriba'> 
+                TORNEOS DE TENIS </div>: 
+                <div className='texto-arriba'>
+                          
                 <br/> Iinicia sesion o registrate </div>}</h1>
-
       <form onSubmit={submitHandler}>
         <label className="email">
          <h2 className="texto">Correo electrónico:</h2> 
@@ -111,7 +109,7 @@ function Login() {
       </form>
 
       <button className="boton" onClick={() => setIsRegistrando(!isRegistrando)}>
-        {isRegistrando ? "Ya tengo una cuenta" : "Quiero registrarme"}
+        {isRegistrando ? "Ya tengo una cuenta" : " registrarme"}
       </button>
     </div>
   );

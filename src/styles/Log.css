@@ -1,8 +1,8 @@
 
 
 .navbar {
-  background-color: rgb(167, 148, 148);
-  color: green;
+  background-color: gray;
+
   padding: 20px;
   position: fixed;
   top: 0;
@@ -176,7 +176,7 @@ h1 {
 
 .destacado {
   color: rgb(126, 194, 49); 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif  ;
+  font-family:Verdana, Geneva, Tahoma, sans-serif
 }
 
 
@@ -345,4 +345,6 @@ select {
   text-align: center; 
   font-size: 24px; 
 }
-
+.x {
+  font-family:'Times New Roman', Times, serif
+}

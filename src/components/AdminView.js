@@ -83,7 +83,7 @@ function AdminView() {
     <div className="container">
       <div className="navbar">
         <div className="title-and-image">
-          <h3>
+          <h3 className='x'>
             torneos
           </h3>
         </div>
@@ -107,16 +107,14 @@ function AdminView() {
                       <div>
                         <input type="text" name="nombre" value={formularioEdicion.nombre} onChange={handleFormularioEdicionChange} />
                         <input type="date" name="fechaLimite" value={formularioEdicion.fechaLimite} onChange={handleFormularioEdicionChange} />
-                        <input type="text" name="imagenURL" value={formularioEdicion.imagenURL} onChange={handleFormularioEdicionChange} />
                         <input type="number" name="maxParticipantes" value={formularioEdicion.maxParticipantes} onChange={handleFormularioEdicionChange} />
                         <input type="number" name="participantesRegistrados" value={formularioEdicion.participantesRegistrados} onChange={handleFormularioEdicionChange} />
                         <button className="boton" onClick={handleGuardarEdicion}>Guardar</button>
                       </div>
                     ) : (
-                      <div>
-                        <div><strong>Nombre:</strong> {torneo.nombre}</div>
+                      <div className='detalles'>
+                        <div className='name'><strong>Nombre:</strong> {torneo.nombre}</div>
                         <div><strong>Fecha límite de inscripción:</strong> {torneo.fechaLimite}</div>
-                        <img src={torneo.imagenURL} alt="Imagen del torneo" />
                         <div><strong>Cantidad máxima de participantes:</strong> {torneo.maxParticipantes}</div>
                         <div><strong>Participantes registrados:</strong> {torneo.participantesRegistrados}</div>
                         <button className="boton" onClick={() => handleEditarTorneo(torneo.id, torneo)}>Editar</button>

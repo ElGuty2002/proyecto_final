@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import firebaseApp from "../firebase/credenciales";
 import "../styles/Log.css";
-import tenisImage from "../img/tenis.png";
 
 const auth = getAuth(firebaseApp);
 
@@ -32,11 +31,7 @@ function UserView({ torneosIniciales = [], torneosRegistrados = [], onRegistroTo
     <div className="container">
       <div className="navbar">
         <div className="title-and-image">
-          <h3>
-            <span className="destacado">TenisCamps</span>
-            <img className="simbol" src={tenisImage} alt="Tenis" /> TORNEOS
-            DISPONIBLES
-          </h3>
+          <h3> TORNEOS </h3>
         </div>
         <button id="toggleButton" onClick={toggleSidebar}>Torneos Registrados</button>
         <button className="bye" onClick={() => signOut(auth)}>Cerrar sesión</button>
@@ -73,7 +68,7 @@ function UserView({ torneosIniciales = [], torneosRegistrados = [], onRegistroTo
             ))}
           </div>
         </div>
-        <h3>TORNEOS DISPONIBLES</h3>
+        <h3 >TORNEOS </h3>
         <div className="catalogo-torneos">
           {torneos.map((torneo) => (
             <div
